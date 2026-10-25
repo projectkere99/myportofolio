@@ -1,8 +1,10 @@
 /* ============================================================
-   script.js — Portfolio interactions
+   script.js — Portfolio SUGIANTO
    ============================================================ */
 (() => {
   "use strict";
+
+  document.documentElement.classList.add("js");
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -25,16 +27,18 @@
 
   function applyTheme(theme) {
     root.dataset.theme = theme;
+
     try {
       localStorage.setItem("theme", theme);
     } catch {
-      /* storage may be disabled */
+      /* storage bisa dinonaktifkan */
     }
+
     const isDark = theme === "dark";
     themeToggle.setAttribute("aria-pressed", String(isDark));
     themeToggle.setAttribute(
       "aria-label",
-      isDark ? "Switch to light theme" : "Switch to dark theme"
+      isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"
     );
   }
 
@@ -51,7 +55,7 @@
   function setMenu(open) {
     nav.classList.toggle("is-open", open);
     menuBtn.setAttribute("aria-expanded", String(open));
-    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    menuBtn.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
   }
 
   menuBtn.addEventListener("click", () => {
@@ -75,6 +79,7 @@
   /* ---------- Header scroll shadow ---------- */
   const header = $("#siteHeader");
   const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
@@ -156,68 +161,68 @@
 
   const projects = [
     {
-      id: "aurora",
-      title: "Aurora Design System",
-      category: "ui",
+      id: "ledger-api",
+      title: "Ledger API",
+      category: "backend",
       year: "2025",
-      description: "A multi-brand token system adopted by 6 product teams.",
+      description: "REST + GraphQL API untuk sistem keuangan dengan uptime 99,99%.",
     },
     {
-      id: "northwind",
-      title: "Northwind Storefront",
+      id: "taskflow",
+      title: "TaskFlow",
       category: "web",
       year: "2024",
-      description: "Headless commerce frontend with 98 Lighthouse score.",
+      description: "Aplikasi manajemen proyek kolaboratif dengan update real-time.",
     },
     {
-      id: "pulse",
-      title: "Pulse Health App",
+      id: "pocketbudget",
+      title: "PocketBudget",
       category: "mobile",
       year: "2024",
-      description: "Cross-platform wellness app with offline-first sync.",
+      description: "Aplikasi keuangan pribadi offline-first untuk Android dan iOS.",
     },
     {
-      id: "monogram",
-      title: "Monogram Identity",
-      category: "brand",
-      year: "2023",
-      description: "Visual identity and motion guidelines for a fintech startup.",
-    },
-    {
-      id: "atlas",
-      title: "Atlas Dashboard",
-      category: "web",
+      id: "deploykit",
+      title: "DeployKit",
+      category: "devops",
       year: "2025",
-      description: "Realtime analytics dashboard with accessible data viz.",
+      description: "CLI dan template CI untuk deployment tanpa downtime.",
     },
     {
-      id: "lumen",
-      title: "Lumen UI Kit",
-      category: "ui",
+      id: "insight-dashboard",
+      title: "Insight Dashboard",
+      category: "web",
       year: "2023",
-      description: "Component library and Figma kit for product teams.",
+      description: "Dashboard analitik dengan grafik aksesibel dan performa tinggi.",
     },
     {
-      id: "orbit",
-      title: "Orbit Travel",
+      id: "authguard",
+      title: "AuthGuard",
+      category: "backend",
+      year: "2023",
+      description: "Microservice autentikasi dan otorisasi berbasis token.",
+    },
+    {
+      id: "fieldnotes",
+      title: "FieldNotes",
       category: "mobile",
-      year: "2024",
-      description: "Trip planning app with collaborative itineraries.",
-    },
-    {
-      id: "verso",
-      title: "Verso Studio Branding",
-      category: "brand",
       year: "2022",
-      description: "Full brand system for an architecture studio.",
+      description: "Aplikasi pengumpulan data lapangan yang bekerja tanpa sinyal.",
+    },
+    {
+      id: "pipeline-monitor",
+      title: "Pipeline Monitor",
+      category: "devops",
+      year: "2024",
+      description: "Dashboard observability untuk pipeline CI/CD dan log.",
     },
   ];
 
   const categoryLabel = {
     web: "Web",
-    ui: "UI / UX",
+    backend: "Backend",
     mobile: "Mobile",
-    brand: "Branding",
+    devops: "DevOps",
   };
 
   const enrichedProjects = projects.map((project, i) => ({
@@ -235,6 +240,7 @@
 
   function renderGallery(filter = "all") {
     gallery.textContent = "";
+
     visibleProjects = enrichedProjects.filter(
       (project) => filter === "all" || project.category === filter
     );
@@ -246,11 +252,11 @@
       card.type = "button";
       card.className = "gallery-card";
       card.dataset.id = project.id;
-      card.setAttribute("aria-label", `Open project: ${project.title}`);
+      card.setAttribute("aria-label", `Buka proyek: ${project.title}`);
 
       const img = document.createElement("img");
       img.src = project.image;
-      img.alt = `${project.title} preview`;
+      img.alt = `Pratinjau ${project.title}`;
       img.loading = "lazy";
       img.decoding = "async";
       img.width = 800;
@@ -286,6 +292,7 @@
         b.classList.remove("is-active");
         b.setAttribute("aria-pressed", "false");
       });
+
       btn.classList.add("is-active");
       btn.setAttribute("aria-pressed", "true");
       renderGallery(btn.dataset.filter);
@@ -310,7 +317,7 @@
     if (!project) return;
 
     lbImage.src = project.image;
-    lbImage.alt = `${project.title} preview`;
+    lbImage.alt = `Pratinjau ${project.title}`;
     lbTitle.textContent = project.title;
     lbMeta.textContent = `${project.categoryLabel} · ${project.year} · ${project.description}`;
     lbCounter.textContent = `${lbIndex + 1} / ${visibleProjects.length}`;
@@ -388,6 +395,7 @@
 
   $("#lbPrev").addEventListener("click", () => navigateLightbox(-1));
   $("#lbNext").addEventListener("click", () => navigateLightbox(1));
+
   $$("[data-close]", lightbox).forEach((el) => {
     el.addEventListener("click", closeLightbox);
   });
@@ -404,7 +412,7 @@
       el: $("#name"),
       err: $("#err-name"),
       validate: (value) =>
-        value.trim().length >= 2 ? true : "Please enter at least 2 characters.",
+        value.trim().length >= 2 ? true : "Masukkan minimal 2 karakter.",
     },
     email: {
       el: $("#email"),
@@ -412,20 +420,20 @@
       validate: (value) =>
         /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim())
           ? true
-          : "Please enter a valid email address.",
+          : "Masukkan alamat email yang valid.",
     },
     topic: {
       el: $("#topic"),
       err: $("#err-topic"),
-      validate: (value) => (value !== "" ? true : "Please choose a topic."),
+      validate: (value) => (value !== "" ? true : "Pilih salah satu topik."),
     },
     message: {
       el: messageField,
       err: $("#err-message"),
       validate: (value) => {
         const text = value.trim();
-        if (text.length < 10) return "Please write at least 10 characters.";
-        if (text.length > 1500) return "Message is too long (max 1500 characters).";
+        if (text.length < 10) return "Tulis minimal 10 karakter.";
+        if (text.length > 1500) return "Pesan terlalu panjang (maks 1500 karakter).";
         return true;
       },
     },
@@ -453,6 +461,7 @@
       err.textContent = "";
       el.removeAttribute("aria-invalid");
     });
+
     el.addEventListener("blur", () => validateField(el));
   });
 
@@ -466,18 +475,19 @@
     formStatus.textContent = "";
     formStatus.className = "form-status";
 
-    /* Honeypot — bots fill hidden fields. Pretend success. */
+    /* Honeypot — bot mengisi field tersembunyi. Pura-pura sukses. */
     const honeypot = $("#website");
     if (honeypot.value.trim() !== "") {
-      formStatus.textContent = "Thanks — your message has been sent.";
+      formStatus.textContent = "Terima kasih — pesan Anda sudah terkirim.";
       formStatus.classList.add("is-success");
       form.reset();
       charCount.textContent = "0";
       return;
     }
 
-    /* Simple client-side rate limit: 30 seconds */
+    /* Rate limit sederhana: 30 detik */
     let lastSent = 0;
+
     try {
       lastSent = Number(localStorage.getItem("lastContact") || 0);
     } catch {
@@ -485,18 +495,19 @@
     }
 
     if (Date.now() - lastSent < 30_000) {
-      formStatus.textContent = "Please wait a moment before sending another message.";
+      formStatus.textContent = "Mohon tunggu sebentar sebelum mengirim pesan lagi.";
       formStatus.classList.add("is-error");
       return;
     }
 
     let valid = true;
+
     Object.values(fields).forEach(({ el }) => {
       if (!validateField(el)) valid = false;
     });
 
     if (!valid) {
-      formStatus.textContent = "Please fix the highlighted fields.";
+      formStatus.textContent = "Perbaiki field yang ditandai.";
       formStatus.classList.add("is-error");
 
       const firstInvalid = Object.values(fields)
@@ -507,19 +518,19 @@
       return;
     }
 
-    /* Simulate a network request. Replace with your real endpoint. */
+    /* Simulasi request. Ganti dengan endpoint asli Anda. */
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
+    submitBtn.textContent = "Mengirim…";
     formStatus.textContent = "";
 
     window.setTimeout(() => {
       submitBtn.disabled = false;
-      submitBtn.textContent = "Send message";
+      submitBtn.textContent = "Kirim pesan";
 
       try {
         localStorage.setItem("lastContact", String(Date.now()));
       } catch {
-        /* ignore */
+        /* abaikan */
       }
 
       form.reset();
@@ -531,7 +542,7 @@
       });
 
       formStatus.textContent =
-        "Thanks — your message has been sent. I’ll reply within 48 hours.";
+        "Terima kasih — pesan Anda sudah terkirim. Saya akan membalas dalam 48 jam.";
       formStatus.classList.add("is-success");
     }, 900);
   });
@@ -558,11 +569,11 @@
         ta.remove();
       }
 
-      copyBtn.setAttribute("aria-label", "Email copied");
+      copyBtn.setAttribute("aria-label", "Email disalin");
       copyBtn.classList.add("is-copied");
 
       window.setTimeout(() => {
-        copyBtn.setAttribute("aria-label", "Copy email address");
+        copyBtn.setAttribute("aria-label", "Salin alamat email");
         copyBtn.classList.remove("is-copied");
       }, 1600);
     } catch {
