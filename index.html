@@ -9,7 +9,6 @@
   <meta name="color-scheme" content="dark light">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <!-- Tandai bahwa JS aktif supaya animasi reveal aman -->
   <script>document.documentElement.classList.add('js');</script>
 
   <link rel="stylesheet" href="style.css">
@@ -17,7 +16,7 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <a class="skip-link" href="#main">Langsung ke konten</a>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="siteHeader">
@@ -30,21 +29,30 @@
       <nav class="nav" id="primaryNav" aria-label="Navigasi utama">
         <ul class="nav-list">
           <li><a class="nav-link" href="#home">Home</a></li>
-          <li><a class="nav-link" href="#about">Tentang</a></li>
-          <li><a class="nav-link" href="#skills">Keahlian</a></li>
+          <li><a class="nav-link" href="#about">Kenalan</a></li>
+          <li><a class="nav-link" href="#skills">Skill</a></li>
           <li><a class="nav-link" href="#work">Proyek</a></li>
-          <li><a class="nav-link" href="#contact">Kontak</a></li>
+          <li>
+            <a class="nav-link nav-link-private" href="#private" id="privateLink">
+              <svg class="ico ico-lock" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="5" y="11" width="14" height="10" rx="2"/>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+              </svg>
+              Galeri pribadi
+            </a>
+          </li>
+          <li><a class="nav-link" href="#contact">Ngobrol</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
         <button class="icon-btn" id="themeToggle" type="button"
                 aria-label="Ganti ke tema terang" aria-pressed="true">
-          <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="4.2"/>
             <path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/>
           </svg>
-          <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z"/>
           </svg>
         </button>
@@ -65,22 +73,23 @@
         <p class="eyebrow reveal">Software Developer</p>
 
         <h1 class="hero-title reveal">
-          Saya membangun software<br>
-          <span class="gradient-text">yang cepat, aman, dan andal.</span>
+          Halo, saya SUGIANTO 👋<br>
+          <span class="gradient-text">Saya bikin software yang enak dipakai.</span>
         </h1>
 
         <p class="hero-sub reveal">
-          Halo, saya <strong>SUGIANTO</strong>. Saya software developer yang fokus pada
-          aplikasi web, API backend, dan otomasi deployment. Saya suka mengubah masalah
-          kompleks menjadi solusi yang sederhana dan bisa dirawat.
+          Fokus di web, backend, dan otomasi deployment. Saya suka ngubah
+          hal rumit jadi solusi yang simpel, cepat, dan aman. Lagi cari
+          developer buat proyek? Atau cuma pengen ngobrol soal tech?
+          Dua-duanya welcome.
         </p>
 
         <div class="hero-cta reveal">
           <a href="#work" class="btn btn-primary">
-            Lihat proyek
+            Lihat karya saya
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="#contact" class="btn btn-ghost">Hubungi saya</a>
+          <a href="#contact" class="btn btn-ghost">Ngobrol yuk</a>
         </div>
 
         <ul class="hero-stats reveal">
@@ -96,21 +105,23 @@
       <div class="container">
         <header class="section-head reveal">
           <span class="section-num" aria-hidden="true">01</span>
-          <h2 class="section-title">Tentang saya</h2>
+          <h2 class="section-title">Kenalan dulu</h2>
           <p class="section-sub">Versi singkat dari cerita panjangnya.</p>
         </header>
 
         <div class="about-grid">
           <div class="about-copy reveal">
             <p>
-              Saya <strong>SUGIANTO</strong>, software developer yang percaya bahwa kode bagus
-              bukan hanya yang berjalan, tapi juga yang mudah dibaca, diuji, dan dikembangkan
-              oleh tim lain.
+              Hai! Saya <strong>SUGIANTO</strong>. Sudah 6 tahun ngoding
+              dan masih suka ngulik hal baru tiap minggu. Buat saya,
+              kode yang bagus bukan cuma yang jalan — tapi yang gampang
+              dibaca, diuji, dan dikembangkan bareng tim.
             </p>
             <p>
-              Pengalaman saya mencakup pengembangan web modern, perancangan API, pengelolaan
-              database, serta otomasi CI/CD. Saya terbiasa bekerja dengan tim produk, menulis
-              dokumentasi, dan menjaga kualitas lewat testing dan code review.
+              Sehari-hari saya main di web modern, API, database, dan
+              pipeline CI/CD. Suka nulis dokumentasi, ikut code review,
+              dan bantu junior tumbuh. Kalau lagi nggak ngoding, biasanya
+              ngopi sambil baca RFC atau ngulik side project.
             </p>
 
             <ul class="tag-row" aria-label="Fokus keahlian">
@@ -131,7 +142,7 @@
               <div><dt>Stack</dt><dd>TypeScript · Node.js · SQL</dd></div>
               <div><dt>Status</dt><dd><span class="pill pill-live">Terbuka untuk proyek</span></dd></div>
             </dl>
-            <a class="btn btn-ghost btn-block" href="#contact">Mulai proyek</a>
+            <a class="btn btn-ghost btn-block" href="#contact">Mulai ngobrol</a>
           </aside>
         </div>
       </div>
@@ -142,8 +153,8 @@
       <div class="container">
         <header class="section-head reveal">
           <span class="section-num" aria-hidden="true">02</span>
-          <h2 class="section-title">Keahlian</h2>
-          <p class="section-sub">Teknologi yang saya gunakan sehari-hari.</p>
+          <h2 class="section-title">Yang saya kuasai</h2>
+          <p class="section-sub">Tools andalan sehari-hari.</p>
         </header>
 
         <div class="skills-grid">
@@ -156,7 +167,7 @@
             <div class="bar" role="img" aria-label="JavaScript dan TypeScript: 95 persen">
               <span class="bar-fill" data-level="95"></span>
             </div>
-            <p>ES2023+, async patterns, strict typing, dan kode yang mudah diuji.</p>
+            <p>ES2023+, async patterns, strict typing, kode yang gampang diuji.</p>
           </article>
 
           <article class="skill-card reveal">
@@ -180,7 +191,7 @@
             <div class="bar" role="img" aria-label="Backend dan API: 93 persen">
               <span class="bar-fill" data-level="93"></span>
             </div>
-            <p>Node.js, REST, GraphQL, autentikasi, validasi, dan keamanan.</p>
+            <p>Node.js, REST, GraphQL, auth, validasi, dan keamanan dasar.</p>
           </article>
 
           <article class="skill-card reveal">
@@ -192,7 +203,7 @@
             <div class="bar" role="img" aria-label="Database: 88 persen">
               <span class="bar-fill" data-level="88"></span>
             </div>
-            <p>PostgreSQL, MySQL, Redis, migrasi, indexing, dan query tuning.</p>
+            <p>PostgreSQL, MySQL, Redis, migrasi, indexing, query tuning.</p>
           </article>
 
           <article class="skill-card reveal">
@@ -204,7 +215,7 @@
             <div class="bar" role="img" aria-label="DevOps dan CI/CD: 85 persen">
               <span class="bar-fill" data-level="85"></span>
             </div>
-            <p>Docker, GitHub Actions, deployment, monitoring, dan logging.</p>
+            <p>Docker, GitHub Actions, deployment, monitoring, logging.</p>
           </article>
 
           <article class="skill-card reveal">
@@ -216,7 +227,7 @@
             <div class="bar" role="img" aria-label="Testing dan kualitas: 90 persen">
               <span class="bar-fill" data-level="90"></span>
             </div>
-            <p>Unit test, integration test, code review, dan dokumentasi teknis.</p>
+            <p>Unit test, integration test, code review, dokumentasi.</p>
           </article>
         </div>
       </div>
@@ -228,7 +239,7 @@
         <header class="section-head reveal">
           <span class="section-num" aria-hidden="true">03</span>
           <h2 class="section-title">Proyek pilihan</h2>
-          <p class="section-sub">Galeri proyek yang saya rancang dan bangun.</p>
+          <p class="section-sub">Beberapa yang paling saya banggakan.</p>
         </header>
 
         <div class="filters reveal" role="group" aria-label="Filter proyek berdasarkan kategori">
@@ -244,9 +255,31 @@
 
         <noscript>
           <p class="gallery-empty">
-            Galeri membutuhkan JavaScript. Aktifkan JavaScript untuk melihat daftar proyek.
+            Galeri butuh JavaScript. Aktifkan JavaScript buat lihat daftar proyek.
           </p>
         </noscript>
+      </div>
+    </section>
+
+    <!-- ============ PRIVATE GALLERY (terkunci) ============ -->
+    <section class="section section-private" id="private" hidden>
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num" aria-hidden="true">04</span>
+          <div class="private-head">
+            <h2 class="section-title">Galeri pribadi</h2>
+            <button class="btn btn-ghost btn-sm" type="button" id="lockBtn">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="5" y="11" width="14" height="10" rx="2"/>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+              </svg>
+              Kunci lagi
+            </button>
+          </div>
+          <p class="section-sub">Behind the scenes, draft, dan dokumentasi pribadi.</p>
+        </header>
+
+        <div class="gallery" id="privateGallery" aria-live="polite"></div>
       </div>
     </section>
 
@@ -254,21 +287,20 @@
     <section class="section" id="contact">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-num" aria-hidden="true">04</span>
-          <h2 class="section-title">Hubungi saya</h2>
-          <p class="section-sub">Ceritakan proyek Anda — saya balas dalam 48 jam.</p>
+          <span class="section-num" aria-hidden="true">05</span>
+          <h2 class="section-title">Ngobrol yuk</h2>
+          <p class="section-sub">Ceritain proyekmu — saya balas dalam 48 jam.</p>
         </header>
 
         <div class="contact-grid">
           <form class="contact-form reveal" id="contactForm" novalidate autocomplete="on">
-            <!-- Honeypot untuk bot -->
             <div class="hp-field" aria-hidden="true">
-              <label for="website">Website (biarkan kosong)</label>
+              <label for="website">Website (biarin kosong)</label>
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
             </div>
 
             <div class="field">
-              <label for="name">Nama</label>
+              <label for="name">Nama kamu</label>
               <input type="text" id="name" name="name" maxlength="60"
                      autocomplete="name" required aria-describedby="err-name">
               <small class="error" id="err-name" role="alert"></small>
@@ -282,10 +314,10 @@
             </div>
 
             <div class="field">
-              <label for="topic">Topik</label>
+              <label for="topic">Mau bahas apa?</label>
               <select id="topic" name="topic" required aria-describedby="err-topic">
                 <option value="">Pilih salah satu…</option>
-                <option value="web">Aplikasi web</option>
+                <option value="web">Bikin aplikasi web</option>
                 <option value="backend">API / backend</option>
                 <option value="mobile">Aplikasi mobile</option>
                 <option value="devops">DevOps / deployment</option>
@@ -295,7 +327,7 @@
             </div>
 
             <div class="field">
-              <label for="message">Pesan</label>
+              <label for="message">Ceritain di sini</label>
               <textarea id="message" name="message" rows="5" maxlength="1500"
                         required aria-describedby="err-message hint-message"></textarea>
               <small class="hint" id="hint-message"><span id="charCount">0</span>/1500</small>
@@ -310,8 +342,8 @@
           </form>
 
           <aside class="contact-aside reveal">
-            <h3 class="card-title">Langsung</h3>
-            <p class="muted">Lebih suka email? Bisa juga.</p>
+            <h3 class="card-title">Langsung aja</h3>
+            <p class="muted">Males isi form? Email juga oke kok.</p>
 
             <div class="copy-row">
               <code id="emailAddress">hello@sugianto.dev</code>
@@ -337,22 +369,22 @@
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year">2025</span> SUGIANTO. Dibangun dari nol.</p>
-      <a href="#home" class="footer-top">Kembali ke atas ↑</a>
+      <p>© <span id="year">2025</span> SUGIANTO. Dibuat sambil ngopi di Indonesia ☕</p>
+      <a href="#home" class="footer-top">Balik ke atas ↑</a>
     </div>
   </footer>
 
-  <!-- ============ LIGHTBOX ============ -->
+  <!-- ============ LIGHTBOX PUBLIK ============ -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
        aria-label="Penampil gambar proyek" hidden>
     <div class="lb-backdrop" data-close></div>
 
     <div class="lb-panel">
-      <button class="lb-btn lb-close" type="button" data-close aria-label="Tutup penampil">
+      <button class="lb-btn lb-close" type="button" data-close aria-label="Tutup">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
 
-      <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="Proyek sebelumnya">
+      <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="Sebelumnya">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
       </button>
 
@@ -364,11 +396,73 @@
         </figcaption>
       </figure>
 
-      <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="Proyek berikutnya">
+      <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="Berikutnya">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </button>
 
       <p class="lb-counter" id="lbCounter" aria-hidden="true"></p>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX PRIVAT ============ -->
+  <div class="lightbox" id="privateLightbox" role="dialog" aria-modal="true"
+       aria-label="Penampil gambar pribadi" hidden>
+    <div class="lb-backdrop" data-close></div>
+
+    <div class="lb-panel">
+      <button class="lb-btn lb-close" type="button" data-close aria-label="Tutup">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <button class="lb-btn lb-prev" type="button" id="pLbPrev" aria-label="Sebelumnya">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+
+      <figure class="lb-figure">
+        <img id="pLbImage" src="" alt="">
+        <figcaption>
+          <strong id="pLbTitle"></strong>
+          <span id="pLbMeta"></span>
+        </figcaption>
+      </figure>
+
+      <button class="lb-btn lb-next" type="button" id="pLbNext" aria-label="Berikutnya">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+
+      <p class="lb-counter" id="pLbCounter" aria-hidden="true"></p>
+    </div>
+  </div>
+
+  <!-- ============ PIN MODAL ============ -->
+  <div class="pin-modal" id="pinModal" role="dialog" aria-modal="true"
+       aria-labelledby="pinTitle" hidden>
+    <div class="pin-backdrop" data-pin-close></div>
+
+    <div class="pin-panel">
+      <button class="pin-close" type="button" data-pin-close aria-label="Tutup">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <div class="pin-icon" aria-hidden="true">
+        <svg class="ico" viewBox="0 0 24 24">
+          <rect x="5" y="11" width="14" height="10" rx="2"/>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+        </svg>
+      </div>
+
+      <h2 id="pinTitle">Galeri pribadi</h2>
+      <p class="pin-sub">Masukkan PIN untuk buka. Hanya untuk pemilik situs.</p>
+
+      <form id="pinForm" novalidate autocomplete="off">
+        <label for="pinInput" class="visually-hidden">PIN</label>
+        <input type="password" id="pinInput" inputmode="numeric" pattern="[0-9]*"
+               maxlength="8" autocomplete="off" required placeholder="••••"
+               aria-describedby="pinError pinAttempts">
+        <small class="pin-error" id="pinError" role="alert"></small>
+        <small class="pin-hint" id="pinAttempts"></small>
+        <button class="btn btn-primary btn-block" type="submit" id="pinSubmit">Buka</button>
+      </form>
     </div>
   </div>
 
